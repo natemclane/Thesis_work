@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nuclear spin coupling in CH4: spin-rotation and spin-spin</title>
+<style>
+.nsc{font-family:Georgia,serif;color:#222;max-width:900px;margin:1.5rem auto;padding:0 1rem;line-height:1.5}
+.nsc h2,.nsc h3{margin:1.4rem 0 .5rem}
+.nsc .eq{background:#f4f6fb;border-left:4px solid #2c3e63;padding:.7rem 1rem;margin:.6rem 0;overflow-x:auto;white-space:nowrap;font-size:1.05rem}
+.nsc .scroll{overflow-x:auto}
+.nsc table{border-collapse:collapse;width:100%;font-size:.93rem}
+.nsc th,.nsc td{border:1px solid #d5d8de;padding:.35rem .6rem;text-align:left;vertical-align:top}
+.nsc thead th{background:#2c3e63;color:#fff}
+.nsc .figs{display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:center}
+.nsc figure{margin:0;flex:1 1 380px;max-width:420px;border:1px solid #d5d8de;border-radius:6px;padding:.6rem;text-align:center}
+.nsc figcaption{font-size:.9rem}
+.nsc svg{width:100%;height:auto;background:#fff}
+.nsc .info{font-size:.9rem;min-height:3.2em;margin:.3rem 0}
+.nsc select{font-family:inherit;font-size:.95rem}
+.nsc .note{font-size:.9rem}
+</style></head><body>
+<div class="nsc">
+<h2>Nuclear spin coupling in CH₄ &mdash; conversion between spin species</h2>
+<p class="note">Spin species are A (I = 2), F (I = 1) and E (I = 0). Only interactions that couple the nuclear spins to the rotation can convert one species into another, and they must change the rotational state at the same time so the total symmetry is conserved.</p>
+
+<h3>1. Spin-rotation Hamiltonian</h3>
+<div class="eq">H<sub>SR</sub> = Σ<sub>i</sub> <b>I</b><sub>i</sub> · <b>C</b><sub>i</sub> · <b>J</b></div>
+<div class="eq">= Σ<sub>i</sub> [ C<sub>⊥</sub> <b>I</b><sub>i</sub>·<b>J</b> + (C<sub>∥</sub> − C<sub>⊥</sub>) (<b>I</b><sub>i</sub>·<b>n</b><sub>i</sub>)(<b>J</b>·<b>n</b><sub>i</sub>) ]</div>
+<p class="note"><b>I</b><sub>i</sub> is the spin of proton i, <b>J</b> the rotational angular momentum, <b>n</b><sub>i</sub> the unit vector along the C–H bond i (body frame), and C<sub>∥</sub>, C<sub>⊥</sub> the two independent components of the spin-rotation tensor for a C₃ᵥ site.</p>
+
+<h3>2. Spin-spin (dipolar) Hamiltonian</h3>
+<div class="eq">H<sub>SS</sub> = Σ<sub>i&lt;j</sub> (μ₀/4π)(γ²ħ²/r<sub>ij</sub>³) [ <b>I</b><sub>i</sub>·<b>I</b><sub>j</sub> − 3 (<b>I</b><sub>i</sub>·<b>r̂</b><sub>ij</sub>)(<b>I</b><sub>j</sub>·<b>r̂</b><sub>ij</sub>) ]</div>
+<p class="note"><b>r̂</b><sub>ij</sub> is the unit vector along the H–H direction. Its lab-frame components come from the body-frame ones through direction cosines (D<sup>1</sup> functions), so the product of two of them is a D<sup>2</sup> function.</p>
+
+<h3>3. Vector model</h3>
+<p class="note">In the vector model two angular momenta <b>a</b> and <b>b</b> precess about their sum <b>F</b> = <b>a</b> + <b>b</b>. The coupling energy is proportional to <b>a</b>·<b>b</b> = ½ [F(F+1) − a(a+1) − b(b+1)], which fixes the angle between the vectors. Pick a value of F below.</p>
+<div class="figs">
+<figure>
+<svg id="sr" viewBox="0 0 320 320" role="img" aria-label="Spin-rotation vector model"></svg>
+<div class="info" id="sr-info"></div>
+<label>F: <select id="sr-F"><option value="0">0</option><option value="1">1</option><option value="2" selected>2</option></select></label>
+<figcaption><b>Spin-rotation:</b> spin <b>I</b> (I = 1) and rotation <b>J</b> (J = 1) precess about <b>F</b> = <b>I</b> + <b>J</b>.</figcaption>
+</figure>
+<figure>
+<svg id="ss" viewBox="0 0 320 320" role="img" aria-label="Spin-spin vector model"></svg>
+<div class="info" id="ss-info"></div>
+<label>S: <select id="ss-F"><option value="0">0</option><option value="1" selected>1</option></select></label>
+<figcaption><b>Spin-spin:</b> two proton spins <b>I</b><sub>1</sub>, <b>I</b><sub>2</sub> (½ each) precess about their total <b>S</b>.</figcaption>
+</figure>
+</div>
+<p class="note">The vector model shows the <i>diagonal</i> (coupled) picture. Conversion comes from the <i>off-diagonal</i> matrix elements of H<sub>SR</sub> and H<sub>SS</sub>, which mix states with different I and different J. Both terms leave the total symmetry unchanged.</p>
+
+<h3>4. What each term connects</h3>
+<div class="scroll"><table>
+<thead><tr><th>Term</th><th>Rank (spin ⊗ rotation)</th><th>Selection rules</th><th>Example conversions in CH₄</th></tr></thead>
+<tbody>
+<tr><td>Spin-rotation</td><td>1 ⊗ 1</td><td>ΔJ = 0, ±1; ΔI = 0, ±1</td><td>A (J=0, I=2) ↔ F (J=1, I=1); E (J=2, I=0) ↔ F₂ (J=2, I=1)</td></tr>
+<tr><td>Spin-spin</td><td>2 ⊗ 2</td><td>ΔJ = 0, ±1, ±2; ΔI = 0, ±1, ±2</td><td>A (J=0, I=2) ↔ E (J=2, I=0); E (J=2, I=0) ↔ F₂ (J=2, I=1)</td></tr>
+</tbody></table></div>
+<p class="note">The indirect scalar coupling J<sub>ij</sub> <b>I</b><sub>i</sub>·<b>I</b><sub>j</sub> is not a conversion mechanism: for four equivalent protons it depends only on the total I, so it never mixes spin species.</p>
+</div>
+
+<script>
+(function(){
+const NS="http://www.w3.org/2000/svg",cx=160,cy=175,sc=62,el=0.42;
+function P(v){return [cx+sc*v[0], cy-sc*(v[2]*Math.cos(el)-v[1]*Math.sin(el))];}
+function el_(n,at){const e=document.createElementNS(NS,n);for(const k in at)e.setAttribute(k,at[k]);return e;}
+function model(id,a,b,la,lb,lF){
+  const svg=document.getElementById(id),sel=document.getElementById(id+'-F'),info=document.getElementById(id+'-info');
+  const col={a:'#d9541e',b:'#2a7fbf',f:'#222'};
+  let st={},els={},phi=0;
+  function build(){
+    svg.innerHTML='';
+    const defs=el_('defs',{});
+    for(const k in col){const m=el_('marker',{id:id+'-m'+k,viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:7,markerHeight:7,orient:'auto-start-reverse'});
+      m.appendChild(el_('path',{d:'M0,0 L10,5 L0,10 z',fill:col[k]}));defs.appendChild(m);}
+    svg.appendChild(defs);
+    const F=+sel.value,FF=F*(F+1),fl=Math.sqrt(FF);
+    const A=a*(a+1),B=b*(b+1);
+    const ma=F>0?(FF+A-B)/(2*fl):0, ap=Math.sqrt(Math.max(A-ma*ma,0));
+    st={F,fl,ma,ap};
+    const top=P([0,0,1.7]),bot=P([0,0,-1.7]);
+    svg.appendChild(el_('line',{x1:top[0],y1:top[1],x2:bot[0],y2:bot[1],stroke:'#aaa','stroke-dasharray':'4 4'}));
+    [[ma,col.a],[fl-ma,col.b]].forEach(([h,c])=>{
+      let d='';for(let t=0;t<=64;t++){const q=P([ap*Math.cos(t/64*2*Math.PI),ap*Math.sin(t/64*2*Math.PI),h]);d+=(t?'L':'M')+q[0].toFixed(1)+','+q[1].toFixed(1);}
+      svg.appendChild(el_('path',{d,fill:'none',stroke:c,'stroke-opacity':.35,'stroke-dasharray':'3 3'}));});
+    ['a','b','f'].forEach(k=>{
+      els[k]=el_('line',{x1:cx,y1:cy,x2:cx,y2:cy,stroke:col[k],'stroke-width':k==='f'?3.5:2.4,'marker-end':'url(#'+id+'-m'+k+')'});
+      svg.appendChild(els[k]);
+      els['t'+k]=el_('text',{fill:col[k],'font-size':15,'font-family':'Georgia,serif','font-weight':'bold'});
+      els['t'+k].textContent={a:la,b:lb,f:lF}[k];svg.appendChild(els['t'+k]);});
+    const dot=el_('circle',{cx:cx,cy:cy,r:3,fill:'#555'});svg.appendChild(dot);
+    const ab=(FF-A-B)/2, cos=ab/Math.sqrt(A*B), ang=Math.acos(Math.max(-1,Math.min(1,cos)))*180/Math.PI;
+    info.innerHTML='F(F+1) = '+FF+' &nbsp;·&nbsp; <b>a</b>·<b>b</b> = ½[F(F+1) − a(a+1) − b(b+1)] = '+ab.toFixed(2)+'<br>angle between '+la+' and '+lb+' ≈ '+ang.toFixed(1)+'°';
+  }
+  function frame(){
+    phi+=0.025;const c=Math.cos(phi),s=Math.sin(phi),{fl,ma,ap}=st;
+    const V={a:[ap*c,ap*s,ma],b:[-ap*c,-ap*s,fl-ma],f:[0,0,fl]};
+    for(const k in V){const q=P(V[k]);els[k].setAttribute('x2',q[0]);els[k].setAttribute('y2',q[1]);
+      els['t'+k].setAttribute('x',q[0]+(V[k][0]>=0?8:-18));els['t'+k].setAttribute('y',q[1]-6);}
+    requestAnimationFrame(frame);
+  }
+  sel.addEventListener('change',build);build();frame();
+}
+model('sr',1,1,'I','J','F');
+model('ss',0.5,0.5,'I₁','I₂','S');
+})();
+</script>
+</body></html>
