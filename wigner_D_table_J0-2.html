@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Wigner D-matrices and rigid-rotor wavefunctions, J = 0, 1, 2</title>
+<style>
+.wigner{font-family:system-ui,sans-serif;max-width:980px;margin:1.5rem auto;padding:0 1rem;color:#222}
+.wigner .scroll{overflow-x:auto}
+.wigner table{border-collapse:collapse;width:100%;font-size:.95rem}
+.wigner th,.wigner td{border:1px solid #d5d8de;padding:.3rem .6rem;text-align:left;white-space:nowrap}
+.wigner td:nth-child(-n+2){text-align:center;width:2.5rem}
+.wigner thead th{background:#2c3e63;color:#fff}
+.wigner tr.j th{background:#e6ebf5;color:#1d2b4a}
+.wigner tbody tr:nth-child(even):not(.j){background:#fafbfd}
+.wigner table.sum td:nth-child(-n+2){text-align:left;width:auto}
+.wigner .note{font-size:.9rem;line-height:1.5}
+</style></head><body>
+<div class="wigner">
+<h2>Wigner D-matrices and rigid-rotor wavefunctions, J = 0, 1, 2</h2>
+<p class="note"><b>Convention:</b> D<sup>J</sup><sub>MK</sub>(α,β,γ) = e<sup>−iMα</sup> d<sup>J</sup><sub>MK</sub>(β) e<sup>−iKγ</sup>, and
+ψ<sub>JKM</sub>(α,β,γ) = N<sub>J</sub> · D<sup>J*</sup><sub>MK</sub> with N<sub>J</sub> = √((2J+1)/8π²).
+M = projection of J on the lab z-axis, K = projection on the body-fixed axis. d-matrix phases follow the standard (Sakurai/Edmonds) convention.
+Normalization: ∫₀<sup>2π</sup>dα ∫₀<sup>π</sup>sinβ dβ ∫₀<sup>2π</sup>dγ |ψ|² = 1. For a spherical top such as CH₄, E = BJ(J+1), independent of K and M.</p>
+<h3>Nuclear-spin partners of each J level (CH₄)</h3>
+<div class="scroll"><table class="sum">
+<thead><tr><th>J</th><th>Rotational species (T<sub>d</sub>)</th><th>Spin species that couples</th><th>Total nuclear spin I</th><th>Spin states</th><th>Name</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>A₁</td><td>A</td><td>2</td><td>5 (M<sub>I</sub> = 2 … −2), includes ↑↑↑↑</td><td>meta</td></tr>
+<tr><td>1</td><td>F₁</td><td>F</td><td>1 (three sets)</td><td>9 (3 sets × M<sub>I</sub> = 1, 0, −1)</td><td>ortho</td></tr>
+<tr><td rowspan="2">2</td><td rowspan="2">E + F₂</td><td>E</td><td>0 (two states)</td><td>2</td><td>para</td></tr>
+<tr><td>F</td><td>1 (three sets)</td><td>9</td><td>ortho</td></tr>
+</tbody></table></div>
+<p class="note">The 2⁴ = 16 nuclear spin states of four spin-½ H nuclei split into A (I = 2, 5 states), F (I = 1, 9 states) and E (I = 0, 2 states). The H nuclei are identical fermions, so the total function must be symmetric under the molecule's proper rotations (they permute the H nuclei evenly). Rotational and nuclear-spin symmetry species must therefore match: A↔A, F↔F, E↔E. Consequences: the all-up state (I = 2, M<sub>I</sub> = +2) can only occur with A rotational levels (J = 0, 3, …), not with J = 1 or J = 2. For J = 2 the five K-combinations per M split into E (K = 0 and one K = ±2 combination; the two E functions) and F₂ (the other K = ±2 combination and the K = ±1 combinations; the three F₂ functions), and these couple to different spin species. The individual (M, K) rows below are not symmetry-adapted, so the nuclear spin partner is listed per J level.</p>
+<h3>D-matrices and wavefunctions</h3>
+<div class="scroll"><table>
+<thead><tr><th>M</th><th>K</th><th>D<sup>J</sup><sub>MK</sub>(α,β,γ)</th><th>ψ<sub>JKM</sub>(α,β,γ)</th></tr></thead>
+<tbody>
+<tr class="j"><th colspan="4">J = 0 &nbsp;(A₁) &nbsp;·&nbsp; 1 degenerate states &nbsp;·&nbsp; N<sub>J</sub> = 1/(2√2 π) &nbsp;·&nbsp; <b>nuclear spin: I = 2 (A, 5 states)</b></th></tr>
+<tr><td>0</td><td>0</td><td>1</td><td>1/(2√2 π) · 1</td></tr>
+<tr class="j"><th colspan="4">J = 1 &nbsp;(F₁) &nbsp;·&nbsp; 9 degenerate states &nbsp;·&nbsp; N<sub>J</sub> = √(3/8π²) &nbsp;·&nbsp; <b>nuclear spin: I = 1 (F, 9 states)</b></th></tr>
+<tr><td>1</td><td>1</td><td>(1+cosβ)/2 · e<sup>i(−α−γ)</sup></td><td>√(3/8π²) · (1+cosβ)/2 · e<sup>i(α+γ)</sup></td></tr>
+<tr><td>1</td><td>0</td><td>−sinβ/√2 · e<sup>−iα</sup></td><td>√(3/8π²) · −sinβ/√2 · e<sup>iα</sup></td></tr>
+<tr><td>1</td><td>-1</td><td>(1−cosβ)/2 · e<sup>i(−α+γ)</sup></td><td>√(3/8π²) · (1−cosβ)/2 · e<sup>i(α−γ)</sup></td></tr>
+<tr><td>0</td><td>1</td><td>sinβ/√2 · e<sup>−iγ</sup></td><td>√(3/8π²) · sinβ/√2 · e<sup>iγ</sup></td></tr>
+<tr><td>0</td><td>0</td><td>cosβ</td><td>√(3/8π²) · cosβ</td></tr>
+<tr><td>0</td><td>-1</td><td>−sinβ/√2 · e<sup>iγ</sup></td><td>√(3/8π²) · −sinβ/√2 · e<sup>−iγ</sup></td></tr>
+<tr><td>-1</td><td>1</td><td>(1−cosβ)/2 · e<sup>i(α−γ)</sup></td><td>√(3/8π²) · (1−cosβ)/2 · e<sup>i(−α+γ)</sup></td></tr>
+<tr><td>-1</td><td>0</td><td>sinβ/√2 · e<sup>iα</sup></td><td>√(3/8π²) · sinβ/√2 · e<sup>−iα</sup></td></tr>
+<tr><td>-1</td><td>-1</td><td>(1+cosβ)/2 · e<sup>i(α+γ)</sup></td><td>√(3/8π²) · (1+cosβ)/2 · e<sup>i(−α−γ)</sup></td></tr>
+<tr class="j"><th colspan="4">J = 2 &nbsp;(E + F₂) &nbsp;·&nbsp; 25 degenerate states &nbsp;·&nbsp; N<sub>J</sub> = √(5/8π²) &nbsp;·&nbsp; <b>nuclear spin: E → I = 0 (2 states); F₂ → I = 1 (9 states)</b></th></tr>
+<tr><td>2</td><td>2</td><td>(1+cosβ)²/4 · e<sup>i(−2α−2γ)</sup></td><td>√(5/8π²) · (1+cosβ)²/4 · e<sup>i(2α+2γ)</sup></td></tr>
+<tr><td>2</td><td>1</td><td>−(1+cosβ) sinβ/2 · e<sup>i(−2α−γ)</sup></td><td>√(5/8π²) · −(1+cosβ) sinβ/2 · e<sup>i(2α+γ)</sup></td></tr>
+<tr><td>2</td><td>0</td><td>(√6/4) sinβ² · e<sup>−2iα</sup></td><td>√(5/8π²) · (√6/4) sinβ² · e<sup>2iα</sup></td></tr>
+<tr><td>2</td><td>-1</td><td>−(1−cosβ) sinβ/2 · e<sup>i(−2α+γ)</sup></td><td>√(5/8π²) · −(1−cosβ) sinβ/2 · e<sup>i(2α−γ)</sup></td></tr>
+<tr><td>2</td><td>-2</td><td>(1−cosβ)²/4 · e<sup>i(−2α+2γ)</sup></td><td>√(5/8π²) · (1−cosβ)²/4 · e<sup>i(2α−2γ)</sup></td></tr>
+<tr><td>1</td><td>2</td><td>(1+cosβ) sinβ/2 · e<sup>i(−α−2γ)</sup></td><td>√(5/8π²) · (1+cosβ) sinβ/2 · e<sup>i(α+2γ)</sup></td></tr>
+<tr><td>1</td><td>1</td><td>(1+cosβ)(2cosβ−1)/2 · e<sup>i(−α−γ)</sup></td><td>√(5/8π²) · (1+cosβ)(2cosβ−1)/2 · e<sup>i(α+γ)</sup></td></tr>
+<tr><td>1</td><td>0</td><td>−√(3/2) sinβ cosβ · e<sup>−iα</sup></td><td>√(5/8π²) · −√(3/2) sinβ cosβ · e<sup>iα</sup></td></tr>
+<tr><td>1</td><td>-1</td><td>(1−cosβ)(2cosβ+1)/2 · e<sup>i(−α+γ)</sup></td><td>√(5/8π²) · (1−cosβ)(2cosβ+1)/2 · e<sup>i(α−γ)</sup></td></tr>
+<tr><td>1</td><td>-2</td><td>−(1−cosβ) sinβ/2 · e<sup>i(−α+2γ)</sup></td><td>√(5/8π²) · −(1−cosβ) sinβ/2 · e<sup>i(α−2γ)</sup></td></tr>
+<tr><td>0</td><td>2</td><td>(√6/4) sinβ² · e<sup>−2iγ</sup></td><td>√(5/8π²) · (√6/4) sinβ² · e<sup>2iγ</sup></td></tr>
+<tr><td>0</td><td>1</td><td>√(3/2) sinβ cosβ · e<sup>−iγ</sup></td><td>√(5/8π²) · √(3/2) sinβ cosβ · e<sup>iγ</sup></td></tr>
+<tr><td>0</td><td>0</td><td>(3cosβ²−1)/2</td><td>√(5/8π²) · (3cosβ²−1)/2</td></tr>
+<tr><td>0</td><td>-1</td><td>−√(3/2) sinβ cosβ · e<sup>iγ</sup></td><td>√(5/8π²) · −√(3/2) sinβ cosβ · e<sup>−iγ</sup></td></tr>
+<tr><td>0</td><td>-2</td><td>(√6/4) sinβ² · e<sup>2iγ</sup></td><td>√(5/8π²) · (√6/4) sinβ² · e<sup>−2iγ</sup></td></tr>
+<tr><td>-1</td><td>2</td><td>(1−cosβ) sinβ/2 · e<sup>i(α−2γ)</sup></td><td>√(5/8π²) · (1−cosβ) sinβ/2 · e<sup>i(−α+2γ)</sup></td></tr>
+<tr><td>-1</td><td>1</td><td>(1−cosβ)(2cosβ+1)/2 · e<sup>i(α−γ)</sup></td><td>√(5/8π²) · (1−cosβ)(2cosβ+1)/2 · e<sup>i(−α+γ)</sup></td></tr>
+<tr><td>-1</td><td>0</td><td>√(3/2) sinβ cosβ · e<sup>iα</sup></td><td>√(5/8π²) · √(3/2) sinβ cosβ · e<sup>−iα</sup></td></tr>
+<tr><td>-1</td><td>-1</td><td>(1+cosβ)(2cosβ−1)/2 · e<sup>i(α+γ)</sup></td><td>√(5/8π²) · (1+cosβ)(2cosβ−1)/2 · e<sup>i(−α−γ)</sup></td></tr>
+<tr><td>-1</td><td>-2</td><td>−(1+cosβ) sinβ/2 · e<sup>i(α+2γ)</sup></td><td>√(5/8π²) · −(1+cosβ) sinβ/2 · e<sup>i(−α−2γ)</sup></td></tr>
+<tr><td>-2</td><td>2</td><td>(1−cosβ)²/4 · e<sup>i(2α−2γ)</sup></td><td>√(5/8π²) · (1−cosβ)²/4 · e<sup>i(−2α+2γ)</sup></td></tr>
+<tr><td>-2</td><td>1</td><td>(1−cosβ) sinβ/2 · e<sup>i(2α−γ)</sup></td><td>√(5/8π²) · (1−cosβ) sinβ/2 · e<sup>i(−2α+γ)</sup></td></tr>
+<tr><td>-2</td><td>0</td><td>(√6/4) sinβ² · e<sup>2iα</sup></td><td>√(5/8π²) · (√6/4) sinβ² · e<sup>−2iα</sup></td></tr>
+<tr><td>-2</td><td>-1</td><td>(1+cosβ) sinβ/2 · e<sup>i(2α+γ)</sup></td><td>√(5/8π²) · (1+cosβ) sinβ/2 · e<sup>i(−2α−γ)</sup></td></tr>
+<tr><td>-2</td><td>-2</td><td>(1+cosβ)²/4 · e<sup>i(2α+2γ)</sup></td><td>√(5/8π²) · (1+cosβ)²/4 · e<sup>i(−2α−2γ)</sup></td></tr>
+</tbody></table></div>
+<p class="note">Symmetry labels are the Td species of each J level. Useful checks: d<sup>J</sup><sub>M′M</sub> = (−1)<sup>M−M′</sup> d<sup>J</sup><sub>MM′</sub> = d<sup>J</sup><sub>−M,−M′</sub>.</p>
+</div></body></html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathan McLane</title>
+    <style>
+    img {
+        transition: 0.3s;
+        max-width: 100%;
+        height: auto;
+    }
+
+    img:hover {
+        transform: scale(1.1);
+    }
+
+    body {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px;
+    }
+
+    p {
+        margin-bottom: 25px;
+    }
+
+    .research-image {
+        display: block;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .panel {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .panel.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    </style>
+    <!-- If JavaScript is off, show everything normally -->
+    <noscript><style>.panel { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body>
+
+<section class="panel">
+    <h1>Bio</h1>
+    <p>My name is Nathan McLane and I am a 5th year Chemical Physics P.h.D candidate in Dr. Leah Dodson's Group. </p>
+    <a href="https://blog.umd.edu/dodson/">Click here to visit the Dodson Lab</a>
+</section>
+
+<section class="panel">
+    <h1>Euler Angles</h1>
+    <img id="h2" src="images/h2_rigid_rotor_still.png"
+         data-still="images/h2_rigid_rotor_still.png"
+         data-anim="images/h2_rigid_rotor.gif"
+         width="400" height="400" alt="H2 rigid rotation">
+</section>
+
+<script>
+  const img = document.getElementById('h2');
+  new Image().src = img.dataset.anim;              // preload so it starts instantly
+  img.addEventListener('mouseenter', () => {
+    img.src = img.dataset.anim + '?t=' + Date.now(); // restarts the GIF from frame 1
+  });
+  img.addEventListener('mouseleave', () => { img.src = img.dataset.still; });
+</script>
+
+<section class="panel">
+    <h2>CH&#8324; rotations &mdash; hover to animate</h2>
+    <div class="row">
+      <img class="hover-gif" src="images/ch4_rot_x_still.png" data-still="images/ch4_rot_x_still.png" data-anim="images/ch4_rot_x.gif" width="400" height="400" alt="CH4 rotation about x">
+      <img class="hover-gif" src="images/ch4_rot_y_still.png" data-still="images/ch4_rot_y_still.png" data-anim="images/ch4_rot_y.gif" width="400" height="400" alt="CH4 rotation about y">
+      <img class="hover-gif" src="images/ch4_rot_z_still.png" data-still="images/ch4_rot_z_still.png" data-anim="images/ch4_rot_z.gif" width="400" height="400" alt="CH4 rotation about z">
+    </div>
+</section>
+
+<script>
+  document.querySelectorAll('.hover-gif').forEach(img => {
+    new Image().src = img.dataset.anim;  // preload
+    img.addEventListener('mouseenter', () => { img.src = img.dataset.anim + '?t=' + Date.now(); });
+    img.addEventListener('mouseleave', () => { img.src = img.dataset.still; });
+  });
+</script>
+
+<section class="panel">
+    <p>Below is the J=0 and J=1 rotational states of methane</p>
+    <img src="images/ch4_J0_probability.png" alt="J = 0" width="1000" class="research-image">
+    <img src="images/ch4_J1_probability.png" alt="J = 1" width="1000" class="research-image">
+
+    <iframe src="wigner_D_table_J0-2.html" width="100%" height="700" style="border:0"></iframe>
+    <a href="https://en.wikipedia.org/wiki/Wigner_D-matrix">Wigner D matrices</a>
+</section>
+
+<section class="panel">
+    <h1>Quantum Information for chemists</h1>
+</section>
+
+<section class="panel">
+    <h2>Inner Products</h2>
+</section>
+
+<section class="panel">
+    <h2>Projections</h2>
+</section>
+
+<section class="panel">
+    <h2>Tensor Products</h2>
+    <p>MTensor products</p>
+</section>
+
+<section class="panel">
+    <h2>Pauli Matrices</h2>
+</section>
+
+<p style="text-align:center">
+    <a href="https://www.linkedin.com/in/nathan-mclane-90396a17b/">Click here to visit my LinkedIn</a>
+</p>
+
+<script>
+  // Fade each panel in when it enters the screen and out when it leaves
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+  }, { threshold: 0, rootMargin: '-10% 0px -10% 0px' });
+  document.querySelectorAll('.panel').forEach(p => observer.observe(p));
+</script>
+
+</body>
+</html>
