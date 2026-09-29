@@ -90,7 +90,7 @@ function model(id,a,b,la,lb,lF){
       els['t'+k].textContent={a:la,b:lb,f:lF}[k];svg.appendChild(els['t'+k]);});
     const dot=el_('circle',{cx:cx,cy:cy,r:3,fill:'#555'});svg.appendChild(dot);
     const ab=(FF-A-B)/2, cos=ab/Math.sqrt(A*B), ang=Math.acos(Math.max(-1,Math.min(1,cos)))*180/Math.PI;
-    info.innerHTML='F(F+1) = '+FF+' &nbsp;·&nbsp; <b>a</b>·<b>b</b> = ½[F(F+1) − a(a+1) − b(b+1)] = '+ab.toFixed(2)+'<br>angle between '+la+' and '+lb+' ≈ '+ang.toFixed(1)+'°';
+    info.innerHTML='F(F+1) = '+FF+', &nbsp;<b>a</b>·<b>b</b> = ½[F(F+1) − a(a+1) − b(b+1)] = '+ab.toFixed(2)+'<br>angle between '+la+' and '+lb+' ≈ '+ang.toFixed(1)+'°';
   }
   function frame(){
     phi+=0.025;const c=Math.cos(phi),s=Math.sin(phi),{fl,ma,ap}=st;
