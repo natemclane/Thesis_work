@@ -122,6 +122,12 @@ body::after {
     </style>
     <!-- If JavaScript is off, show everything normally -->
     <noscript><style>.panel { opacity: 1; transform: none; }</style></noscript>
+    <script>
+        window.MathJax = {
+          tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
 
@@ -194,6 +200,28 @@ body::after {
 </section>
 
 <section class="panel">
+    <h2>Spin-State Weights via Angular Momentum Algebra</h2>
+
+    <p>Another way to determine weights of spin-states is through a simple, yet elegant derivation using angular momentum algebra devised by Takeshi Oka (citation). The "almighty formula" for all possible derivations is given by</p>
+
+    $$D_{I_1} \otimes D_{I_2} = D_{I_1 + I_2} \oplus D_{I_1 + I_2 - 1} \oplus \cdots \oplus D_{|I_1 - I_2|}$$
+
+    <p>This equation can be applied to any possible NSI-containing molecular species. As an example, the derivation for $H_2$ can be done by</p>
+
+    $$D_{1/2} \otimes D_{1/2} = D_1 \oplus D_0$$
+
+    <p>In this case the subscript denotes the combined total nuclear spin $I$, so we have two states with $I=1$ and $I=0$, with degeneracies of 3 and 1, respectively, based on $2I+1$. An even more powerful use of this method is deducing the irreducible representations of a spin state. To show this, using $CH_4$ as an example gives</p>
+
+    $$D_{1/2} \otimes D_{1/2} \otimes D_{1/2} \otimes D_{1/2} = (D_{1/2} \otimes D_{1/2}) \otimes (D_{1/2} \otimes D_{1/2}) = (D_1 \oplus D_0) \otimes (D_1 \oplus D_0)$$
+
+    $$(D_1 \oplus D_0) \otimes (D_1 \oplus D_0) = (D_1 \otimes D_1) \oplus 2(D_1 \otimes D_0) \oplus (D_0 \otimes D_0)$$
+
+    $$(D_1 \otimes D_1) \oplus 2(D_1 \otimes D_0) \oplus (D_0 \otimes D_0) = D_2 \oplus D_1 \oplus D_0 \oplus 2D_1 \oplus D_0 = D_2 \oplus 3D_1 \oplus 2D_0$$
+
+    <p>where, through inspection, we have states $I = 2, 1, 0$ with irreducible representations $A, T, E$, derived from their respective preceding coefficients.</p>
+</section>
+
+<section class="panel">
     <h1>Quantum Information for chemists</h1>
 </section>
 
@@ -214,12 +242,18 @@ body::after {
     <h2>Pauli Matrices</h2>
 </section>
 
+<section class="panel">
+    <h2>Irreducible Representations</h2>
+</section>
 
 
 
 
 
 
+<p style="text-align:center">
+    <a href="https://scholar.google.com/citations?hl=en&user=FUezk4AAAAAJ&view_op=list_works&sortby=pubdate">Click here to visit my full publication list</a>
+</p>
 
 
 <p style="text-align:center">
