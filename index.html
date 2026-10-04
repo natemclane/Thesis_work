@@ -53,6 +53,72 @@
         opacity: 1;
         transform: translateY(0);
     }
+/* ===== RETRO THEME ===== */
+:root {
+    --bg: #fdf6e3;
+    --text: #3b2f2f;
+    --accent: #d33682;
+    --accent-2: #268bd2;
+    --border: #3b2f2f;
+    --font: "Courier New", Courier, monospace;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.7;
+}
+
+h1, h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-shadow: 3px 3px 0 var(--accent);
+}
+
+a {
+    color: var(--accent-2);
+    font-weight: bold;
+    text-decoration: underline wavy;
+    text-underline-offset: 4px;
+}
+a:hover {
+    background: var(--accent-2);
+    color: var(--bg);
+    text-decoration: none;
+}
+
+img {
+    border: 3px solid var(--border);
+    box-shadow: 6px 6px 0 var(--border);
+    background: #fff;
+}
+
+iframe {
+    border: 3px solid var(--border) !important;  /* !important beats your inline border:0 */
+    box-shadow: 6px 6px 0 var(--border);
+}
+
+.panel {
+    border-bottom: 3px dashed var(--border);
+}
+
+/* Optional: CRT scanline overlay */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.04) 0,
+        rgba(0, 0, 0, 0.04) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+}
+
+
     </style>
     <!-- If JavaScript is off, show everything normally -->
     <noscript><style>.panel { opacity: 1; transform: none; }</style></noscript>
@@ -67,20 +133,30 @@
 
 <section class="panel">
     <h1>Euler Angles</h1>
+    
     <img id="h2" src="images/h2_rigid_rotor_still.png"
          data-still="images/h2_rigid_rotor_still.png"
          data-anim="images/h2_rigid_rotor.gif"
          width="400" height="400" alt="H2 rigid rotation">
 </section>
 
+
+
+<section class="panel">
+
+        <p>Ortho-H<sub>2</sub> (nuclear spin I = 1) goes with odd J states and para-H<sub>2</sub> (I = 0) goes with even J states, so that the total wavefunction is antisymmetric under exchange of the two protons. Converting between the two nuclear spin isomers requires an operator that is odd under exchange, such as <b>I</b><sub>1</sub> &minus; <b>I</b><sub>2</sub>, which turns a symmetric (triplet) spin state into an antisymmetric (singlet) one. The molecule's Hamiltonian cannot contain such a term on its own, because the two protons are identical and the Hamiltonian must be even under exchange. Nor can it be paired with a rotational or spatial operator to make an allowed term. Pairing it with <b>J</b> gives (<b>I</b><sub>1</sub> &minus; <b>I</b><sub>2</sub>)&middot;<b>J</b>, which is still odd under exchange. Pairing it with the bond direction <b>n</b> gives (<b>I</b><sub>1</sub> &minus; <b>I</b><sub>2</sub>)&middot;<b>n</b>, which is even under exchange but odd under spatial inversion, and the Hamiltonian must be even under inversion as well. Both are therefore forbidden, and an isolated H<sub>2</sub> molecule does not convert between ortho and para.</p>
+
+</section>
+
 <script>
-  const img = document.getElementById('h2');
-  new Image().src = img.dataset.anim;              // preload so it starts instantly
-  img.addEventListener('mouseenter', () => {
-    img.src = img.dataset.anim + '?t=' + Date.now(); // restarts the GIF from frame 1
-  });
-  img.addEventListener('mouseleave', () => { img.src = img.dataset.still; });
-</script>
+    const img = document.getElementById('h2');
+    new Image().src = img.dataset.anim;              // preload so it starts instantly
+    img.addEventListener('mouseenter', () => {
+      img.src = img.dataset.anim + '?t=' + Date.now(); // restarts the GIF from frame 1
+    });
+    img.addEventListener('mouseleave', () => { img.src = img.dataset.still; });
+  </script>
+
 
 <section class="panel">
     <h2>CH&#8324; rotations &mdash; hover to animate</h2>
