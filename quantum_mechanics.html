@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathan McLane</title>
+    <style>
+    img {
+        transition: 0.3s;
+        max-width: 100%;
+        height: auto;
+    }
+
+    img:hover {
+        transform: scale(1.1);
+    }
+
+    body {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px;
+    }
+
+    p {
+        margin-bottom: 25px;
+    }
+
+    .research-image {
+        display: block;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .panel {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .panel.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+/* ===== RETRO THEME ===== */
+:root {
+    --bg: #fdf6e3;
+    --text: #3b2f2f;
+    --accent: #d33682;
+    --accent-2: #268bd2;
+    --border: #3b2f2f;
+    --font: "Courier New", Courier, monospace;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.7;
+}
+
+h1, h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-shadow: 3px 3px 0 var(--accent);
+}
+
+a {
+    color: var(--accent-2);
+    font-weight: bold;
+    text-decoration: underline wavy;
+    text-underline-offset: 4px;
+}
+a:hover {
+    background: var(--accent-2);
+    color: var(--bg);
+    text-decoration: none;
+}
+
+img {
+    border: 3px solid var(--border);
+    box-shadow: 6px 6px 0 var(--border);
+    background: #fff;
+}
+
+iframe {
+    border: 3px solid var(--border) !important;  /* !important beats your inline border:0 */
+    box-shadow: 6px 6px 0 var(--border);
+}
+
+.panel {
+    border-bottom: 3px dashed var(--border);
+}
+
+/* Optional: CRT scanline overlay */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.04) 0,
+        rgba(0, 0, 0, 0.04) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+}
+html {
+    scroll-behavior: smooth;   /* animated jump instead of an instant snap */
+}
+
+.toc {
+    position: fixed;          /* stays put while the page scrolls */
+    top: 0;
+    left: 0;
+    width: 190px;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;   /* stack links vertically */
+    gap: 0.75rem;
+    overflow-y: auto;         /* scrolls if the list is taller than the screen */
+    background: var(--bg);
+    border-right: 3px dashed var(--border);
+    z-index: 10;
+}
+
+.panel {
+    scroll-margin-top: 20px;
+}
+
+/* Wide screens: push the page content right so the sidebar never covers it */
+@media (min-width: 1000px) {
+    body {
+        margin-left: max(220px, calc(50vw - 490px));
+        margin-right: auto;
+    }
+}
+
+/* Narrow screens (phones): fall back to a sticky bar across the top */
+@media (max-width: 999px) {
+    .toc {
+        position: sticky;
+        width: auto;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 12px 0;
+        border-right: 0;
+        border-bottom: 3px dashed var(--border);
+    }
+    .panel {
+        scroll-margin-top: 70px;
+    }
+}
+
+
+
+    </style>
+    <!-- If JavaScript is off, show everything normally -->
+    <noscript><style>.panel { opacity: 1; transform: none; }</style></noscript>
+    <script>
+        window.MathJax = {
+          tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <nav class="toc">
+        <a href="#h2">99% of my P.h.D.</a>
+        <a href="#quantum_info">Quantum Information.</a>
+        <a href="#Experimental work">Experimental designs and work</a>
+
+
+
+
+
+
+
+        <a href="#Links">Nathan McLane's Links</a>
+
+    </nav>
+
+
+
+
+
+
+<section class="panel">
+    <h1>Perspective of Quantum Mechanics from Chemistry to Math</h1>
+    <p>From my perspective, I have had a pretty unusual progression on how I have learned microscopic properties of the universe. I started with a bachelors in Chemistry, currently working on a P.h.D in Chemical Physics
+        and most recently, have become a MathQuantum fellow. Through this progression of learning, I believe I have also contemplated on what I am learning and what I have a learned, and what I have taken for granted in my earlier course work.
+        In this page I am hoping to outline how it all started, and where I am at today, starting from (what I understand) to be a physcial chemists knowledge on quantum mechanics, to a physcist, and then finally from a pure mathematical ground of QM. 
+      </p>
+        
+    </section>
+
+
+    <section class="panel">
+        <h1>Principles of Quantum chemistry</h1>
+        <p>Most problems in chemistry look to use the tools of quantum mechanics to describe the microscopic properties of molecules. This has obviously has a range of problems that can be solved using these problems.
+            To name a few, molecular stability in aromatic compounds, spectroscopic properties, collisional dynamics and chemical reactivity. To being describe these processes, the first step is usually the Born-Oppenheimer approximation.
+                  </p>
+
+
+        
+        <h2>Born-Oppenheimer Approximation</h2>
+            
+        </section>
+
+
+<script>
+  // Fade each panel in when it enters the screen and out when it leaves
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+  }, { threshold: 0, rootMargin: '-10% 0px -10% 0px' });
+  document.querySelectorAll('.panel').forEach(p => observer.observe(p));
+</script>
+
+</body>
+</html>
